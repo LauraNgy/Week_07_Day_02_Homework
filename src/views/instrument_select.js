@@ -8,7 +8,11 @@ InstrumentSelect.prototype.bindEvents = function () {
   PubSub.subscribe('InstrumentFamilies:instruments-ready', (event) => {
     const instruments = event.detail;
     this.populate(instruments);
+  });
 
+  this.element.addEventListener('change', (event) => {
+    const instrumentId = event.target.value;
+    PubSub.publish('InstrumentSelect:instrument-selected', instrumentId);
   });
 };
 
