@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const instrumentSelect = new InstrumentSelect(selectElement);
   instrumentSelect.bindEvents();
 
-  const instrumentDisplay = new InstrumentDisplay();
+  const displayElement = document.querySelector('#instrument-display');
+  const instrumentDisplay = new InstrumentDisplay(displayElement);
   instrumentDisplay.bindEvents();
 
   const instrumentFamilies = new InstrumentFamilies();
