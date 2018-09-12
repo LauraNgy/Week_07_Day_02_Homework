@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
+const CreateAppend = require('../helpers/create_append.js');
 
 const InstrumentSelect = function (element) {
   this.element = element;
@@ -16,16 +17,10 @@ InstrumentSelect.prototype.bindEvents = function () {
   });
 };
 
-InstrumentSelect.prototype.newElement = function (tagName, parentName) {
-  const newElem = document.createElement(tagName);
-  parentName.appendChild(newElem);
-  return newElem;
-};
 
 InstrumentSelect.prototype.populate = function(instruments){
   instruments.forEach( (instrument, index) => {
-    const option = this.newElement('option', this.element);
-    option.textContent = instrument.name;
+    const option = new CreateAppend('option', instrument.name, this.element);
     option.value = index;
   });
 };

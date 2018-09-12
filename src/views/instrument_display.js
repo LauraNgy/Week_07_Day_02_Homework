@@ -12,12 +12,6 @@ InstrumentDisplay.prototype.bindEvents = function () {
   });
 };
 
-// InstrumentDisplay.prototype.newElement = function (tagName, parentName) {
-//   const newElem = document.createElement(tagName);
-//   parentName.appendChild(newElem);
-//   return newElem;
-// };
-
 InstrumentDisplay.prototype.render = function (instrument) {
   const parent = this.element;
   this.element.innerHTML = '';
